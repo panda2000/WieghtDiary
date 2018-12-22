@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="ru.pandaprg.wieghtdiary.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <TextView
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvLeg"
+        android:layout_weight="0.25"
+        android:layout_alignBaseline="@+id/textView17"
+        android:layout_alignBottom="@+id/textView17"
+        android:layout_alignStart="@+id/tvThight" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvBelly"
+        android:layout_weight="0.25"
+        android:layout_alignBaseline="@+id/textView12"
+        android:layout_alignBottom="@+id/textView12"
+        android:layout_alignStart="@+id/tvWaist" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvWaist"
+        android:layout_weight="0.25"
+        android:layout_alignBaseline="@+id/textView10"
+        android:layout_alignBottom="@+id/textView10"
+        android:layout_alignStart="@+id/tvUBreast" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvUBreast"
+        android:layout_weight="0.25"
+        android:layout_alignBaseline="@+id/textView6"
+        android:layout_alignBottom="@+id/textView6"
+        android:layout_alignStart="@+id/tvBreast" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvBreast"
+        android:layout_weight="0.25"
+        android:layout_alignBaseline="@+id/textView5"
+        android:layout_alignBottom="@+id/textView5"
+        android:layout_alignStart="@+id/textView2" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvThight"
+        android:layout_weight="0.25"
+        android:layout_alignBaseline="@+id/textView8"
+        android:layout_alignBottom="@+id/textView8"
+        android:layout_alignStart="@+id/tvBelly" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:layout_weight="0.25"
+        android:text="@string/arm_label"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignStart="@+id/textView5"
+        android:visibility="invisible" />
+
+    <TextView
+        android:text="@string/under_breast_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView6"
+        android:layout_weight="0.25"
+        android:layout_marginTop="33dp"
+        android:layout_below="@+id/textView5"
+        android:layout_toStartOf="@+id/tvUBreast"
+        android:layout_marginEnd="11dp" />
+
+    <TextView
+        android:text="@string/breast_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:layout_weight="0.25"
+        android:layout_marginTop="41dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignStart="@+id/textView6" />
+
+    <TextView
+        android:text="@string/belly_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView12"
+        android:layout_weight="0.25"
+        android:layout_marginTop="36dp"
+        android:layout_below="@+id/textView10"
+        android:layout_alignStart="@+id/textView6" />
+
+    <TextView
+        android:text="@string/waist_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView10"
+        android:layout_weight="0.25"
+        android:layout_marginTop="38dp"
+        android:layout_below="@+id/textView6"
+        android:layout_alignEnd="@+id/textView5" />
+
+    <TextView
+        android:text="@string/thigh_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView8"
+        android:layout_weight="0.25"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/textView12"
+        android:layout_alignStart="@+id/textView12" />
+
+    <TextView
+        android:text="@string/leg_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView17"
+        android:layout_weight="0.25"
+        android:layout_marginTop="44dp"
+        android:layout_below="@+id/textView8"
+        android:layout_alignStart="@+id/textView10" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/mess"
+        android:id="@+id/imageView3"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/tvUnit"
+        android:scaleType="fitStart" />
+
+    <TextView
+        android:text="17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_weight="0.25"
+        android:layout_marginTop="17dp"
+        android:layout_alignTop="@+id/imageView3"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="36dp"
+        android:visibility="invisible" />
+
+    <TextView
+        android:text="@string/weight_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvUnit"
+        android:textSize="36sp"
+        android:layout_marginStart="13dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/tvWeight" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvWeight"
+        android:textSize="36sp"
+        android:layout_marginStart="11dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.25"
+        android:layout_alignBaseline="@+id/tvLeg"
+        android:layout_alignBottom="@+id/tvLeg"
+        android:layout_toEndOf="@+id/tvLeg"
+        android:text="@string/girth_unit"
+        android:id="@+id/textView18" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.25"
+        android:text="@string/girth_unit"
+        android:layout_alignBaseline="@+id/tvThight"
+        android:layout_alignBottom="@+id/tvThight"
+        android:layout_toEndOf="@+id/tvThight" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.25"
+        android:text="@string/girth_unit"
+        android:id="@+id/textView20"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/tvBelly" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.25"
+        android:text="@string/girth_unit"
+        android:id="@+id/textView21"
+        android:layout_alignBaseline="@+id/tvWaist"
+        android:layout_alignBottom="@+id/tvWaist"
+        android:layout_toEndOf="@+id/tvWaist" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.25"
+        android:text="@string/girth_unit"
+        android:id="@+id/textView22"
+        android:layout_alignBaseline="@+id/tvUBreast"
+        android:layout_alignBottom="@+id/tvUBreast"
+        android:layout_toEndOf="@+id/tvUBreast" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.25"
+        android:text="@string/girth_unit"
+        android:id="@+id/textView23"
+        android:layout_alignBaseline="@+id/tvBreast"
+        android:layout_alignBottom="@+id/tvBreast"
+        android:layout_toEndOf="@+id/tvBreast" />
+
+</RelativeLayout>

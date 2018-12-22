@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">WieghtDiary</string>
+    <string name="action_settings">Settings</string>
+    <string name="arm_label">Рука</string>
+    <string name="breast_label">Грудь</string>
+    <string name="under_breast_label">Под грудью</string>
+    <string name="waist_label">Талия</string>
+    <string name="belly_label">Живот</string>
+    <string name="thigh_label">Бедро</string>
+    <string name="leg_label">Нога</string>
+    <string name="weight_label">Вес</string>
+    <string name="title_activity_measurement">measurement</string>
+
+    <string-array name="questions" >
+        <item> Измеряем объем груди. </item>
+        <item> Измеряем под грудью. </item>
+        <item> Измеряем объем талии. </item>
+        <item> Измеряем объем живота. </item>
+        <item> Измеряем объем бедра. </item>
+        <item> Измеряем объем ноги. </item>
+        <item> И последнее. Взвешиваемся. </item>
+    </string-array>
+
+    <string name="girth_unit">см</string>
+    <string name="weight_unit">кг</string>
+</resources>
