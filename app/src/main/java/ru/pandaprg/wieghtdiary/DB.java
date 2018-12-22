@@ -12,7 +12,7 @@ public class DB {
     private static final String LOG_TAG = "LOG SQLite";
 
     private static final String DB_NAME = "wieghtDiaryDB";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 3;
 
     private static final String MEASURING_TABLE = "Measuring";
 
@@ -188,21 +188,72 @@ public class DB {
             Log.d (LOG_TAG, "onCreate");
             db.execSQL(DB_CREATE);
             ContentValues cv = new ContentValues();
-            for (int i = 1; i < 5; i++) {
-                cv.put(COLUMN_DATE, "time");
-                cv.put(COLUMN_BREAST, 1*i);
-                cv.put(COLUMN_UBREAST, 2*i);
-                cv.put(COLUMN_WAIST, 3*i);
-                cv.put(COLUMN_BELLY, 4*i);
-                cv.put(COLUMN_THIGH, 5*i);
-                cv.put(COLUMN_LEG, 6*i);
-                cv.put(COLUMN_WEIGHT, 7*i);
-                db.insert(MEASURING_TABLE, null, cv);
-            }
 
+                cv.put(COLUMN_DATE, "1541980800000");
+                cv.put(COLUMN_BREAST, 86);
+                cv.put(COLUMN_UBREAST, 75);
+                cv.put(COLUMN_WAIST, 72);
+                cv.put(COLUMN_BELLY, 89);
+                cv.put(COLUMN_THIGH, 93);
+                cv.put(COLUMN_LEG, 51);
+                cv.put(COLUMN_WEIGHT, 54.2);
+                db.insert(MEASURING_TABLE, null, cv);
             cv.clear();
 
+            cv.put(COLUMN_DATE, "1542499200000");
+            cv.put(COLUMN_BREAST, 86);
+            cv.put(COLUMN_UBREAST, 74);
+            cv.put(COLUMN_WAIST, 71);
+            cv.put(COLUMN_BELLY, 87);
+            cv.put(COLUMN_THIGH, 92);
+            cv.put(COLUMN_LEG, 51);
+            cv.put(COLUMN_WEIGHT, 52.4);
+            db.insert(MEASURING_TABLE, null, cv);
+            cv.clear();
 
+            cv.put(COLUMN_DATE, "1543104000000");
+            cv.put(COLUMN_BREAST, 85);
+            cv.put(COLUMN_UBREAST, 73);
+            cv.put(COLUMN_WAIST, 68);
+            cv.put(COLUMN_BELLY, 83);
+            cv.put(COLUMN_THIGH, 91);
+            cv.put(COLUMN_LEG, 51);
+            cv.put(COLUMN_WEIGHT, 51.1);
+            db.insert(MEASURING_TABLE, null, cv);
+            cv.clear();
+
+            cv.put(COLUMN_DATE, "1543708800000");
+            cv.put(COLUMN_BREAST, 83);
+            cv.put(COLUMN_UBREAST, 72);
+            cv.put(COLUMN_WAIST, 65);
+            cv.put(COLUMN_BELLY, 81);
+            cv.put(COLUMN_THIGH, 90);
+            cv.put(COLUMN_LEG, 49);
+            cv.put(COLUMN_WEIGHT, 50.7);
+            db.insert(MEASURING_TABLE, null, cv);
+            cv.clear();
+
+            cv.put(COLUMN_DATE, "1544313600000");
+            cv.put(COLUMN_BREAST, 81);
+            cv.put(COLUMN_UBREAST, 70);
+            cv.put(COLUMN_WAIST, 62);
+            cv.put(COLUMN_BELLY, 73);
+            cv.put(COLUMN_THIGH, 86);
+            cv.put(COLUMN_LEG, 48);
+            cv.put(COLUMN_WEIGHT, 49.9);
+            db.insert(MEASURING_TABLE, null, cv);
+            cv.clear();
+
+            cv.put(COLUMN_DATE, "1545177600000");
+            cv.put(COLUMN_BREAST, 81);
+            cv.put(COLUMN_UBREAST, 71);
+            cv.put(COLUMN_WAIST, 65);
+            cv.put(COLUMN_BELLY, 81);
+            cv.put(COLUMN_THIGH, 88);
+            cv.put(COLUMN_LEG, 48);
+            cv.put(COLUMN_WEIGHT, 51.0);
+            db.insert(MEASURING_TABLE, null, cv);
+            cv.clear();
 
         }
 
@@ -215,10 +266,6 @@ public class DB {
 
             onCreate(db);
             Log.d (LOG_TAG, "Food Type create");
-            Log.d (LOG_TAG, "Food create");
-            Log.d (LOG_TAG, "MEALTIME create");
-            Log.d (LOG_TAG, "MEALTIME Food create");
-
 
 
         }
