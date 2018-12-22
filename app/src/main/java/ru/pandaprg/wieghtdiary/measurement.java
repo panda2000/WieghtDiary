@@ -29,6 +29,7 @@ public class measurement extends AppCompatActivity {
 
         Resources res = getResources();
         quest = res.getStringArray(R.array.questions);
+        final int []  values = new int [quest.length];
         girth_unit = res.getString(R.string.girth_unit);
         weight_unit = res.getString(R.string.weight_unit);
         step = 0;
@@ -46,6 +47,7 @@ public class measurement extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                values[step] = Integer.parseInt(etValue.getText().toString());
                 etValue.setText("");
                 //Если это последний вопрос
                 if (step == quest.length-2){
@@ -68,8 +70,16 @@ public class measurement extends AppCompatActivity {
                     // добавляем в базу
 
                     // возвращаемся в главное окно
-                    Intent intent = new Intent(measurement.this, MainActivity.class);
-                    startActivity(intent);
+                    Intent intent = new Intent();
+                    intent.putExtra("Breast", values[0]);
+                    intent.putExtra("UBreast",values[1]);
+                    intent.putExtra("Waist", values[2]);
+                    intent.putExtra("Belly", values[3]);
+                    intent.putExtra("Thight", values[4]);
+                    intent.putExtra("Leg", values[5]);
+                    intent.putExtra("Weight", values[6]);
+                    setResult(RESULT_OK, intent);
+                    finish();
                 }
             }
         });

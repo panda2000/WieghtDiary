@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     private DB db;
@@ -21,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
     TextView tvThigh;
     TextView tvLeg;
     TextView tvWeight;
-
+    TextView tvTime;
+    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +38,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, measurement.class);
-                startActivity(intent);
+                startActivityForResult(intent,1);
             }
         });
 
         db = new DB(this);
         db.open();
 
+        tvTime = (TextView) findViewById(R.id.tvTime);
         tvBreast = (TextView) findViewById(R.id.tvBreast);
         tvUBreast =(TextView) findViewById(R.id.tvUBreast);
         tvWaist = (TextView) findViewById(R.id.tvWaist);
@@ -55,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         // выводим значения из курсора
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
+            tvTime.setText(sdf.format(Long.parseLong(cursor.getString(1))));
             tvBreast.setText(cursor.getString(2));
             tvUBreast.setText(cursor.getString(3));
             tvWaist.setText(cursor.getString(4));
@@ -63,6 +68,32 @@ public class MainActivity extends AppCompatActivity {
             tvLeg.setText(cursor.getString(7));
             tvWeight.setText(cursor.getString(8));
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (data == null) {return;}
+
+        String time = System.currentTimeMillis() + "";
+        int breast = data.getIntExtra("Breast", 0);
+        int uBreast = data.getIntExtra("UBreast",0);
+        int waist = data.getIntExtra("Waist", 0);
+        int belly = data.getIntExtra("Belly", 0);
+        int thigh = data.getIntExtra("Thight", 0);
+        int leg = data.getIntExtra("Leg", 0);
+        int weight = data.getIntExtra("Weight", 0);
+
+        db.addRec(time, breast, uBreast, waist, belly,thigh, leg, weight);
+
+        tvTime.setText(sdf.format(time));
+        tvBreast.setText(breast+"");
+        tvUBreast.setText(uBreast+"");
+        tvWaist.setText(waist+"");
+        tvBelly.setText(belly+"");
+        tvThigh.setText(thigh+"");
+        tvLeg.setText(leg+"");
+        tvWeight.setText(weight+"");
+
     }
 
     @Override
