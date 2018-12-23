@@ -2,6 +2,7 @@
     <string name="app_name">Дневник фигуры</string>
 
     <string name="title_activity_measurement">Замеры</string>
+    <string name="title_activity_trend">График</string>
 
     <string name="action_trend">График</string>
     <string name="action_history">Истроия</string>
@@ -17,7 +18,7 @@
     <string name="weight_label">Вес</string>
 
 
-    <string-array name="questions" >
+    <string-array name="questions">
         <item> Измеряем объем груди. </item>
         <item> Измеряем под грудью. </item>
         <item> Измеряем объем талии. </item>
@@ -29,4 +30,5 @@
 
     <string name="girth_unit">см</string>
     <string name="weight_unit">кг</string>
+
 </resources>

@@ -21,6 +21,10 @@
         <activity
             android:name=".measurement"
             android:label="@string/title_activity_measurement"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TrendActivity"
+            android:label="@string/title_activity_trend"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
