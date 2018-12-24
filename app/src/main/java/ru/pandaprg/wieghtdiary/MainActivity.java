@@ -75,17 +75,17 @@ public class MainActivity extends AppCompatActivity {
         if (data == null) {return;}
 
         String time = System.currentTimeMillis() + "";
-        int breast = data.getIntExtra("Breast", 0);
-        int uBreast = data.getIntExtra("UBreast",0);
-        int waist = data.getIntExtra("Waist", 0);
-        int belly = data.getIntExtra("Belly", 0);
-        int thigh = data.getIntExtra("Thight", 0);
-        int leg = data.getIntExtra("Leg", 0);
-        int weight = data.getIntExtra("Weight", 0);
+        double breast = data.getDoubleExtra("Breast", 0);
+        double uBreast = data.getDoubleExtra("UBreast",0);
+        double waist = data.getDoubleExtra("Waist", 0);
+        double belly = data.getDoubleExtra("Belly", 0);
+        double thigh = data.getDoubleExtra("Thight", 0);
+        double leg = data.getDoubleExtra("Leg", 0);
+        double weight = data.getDoubleExtra("Weight", 0);
 
         db.addRec(time, breast, uBreast, waist, belly,thigh, leg, weight);
 
-        tvTime.setText(sdf.format(time));
+        tvTime.setText(sdf.format(Long.parseLong(time)));
         tvBreast.setText(breast+"");
         tvUBreast.setText(uBreast+"");
         tvWaist.setText(waist+"");
@@ -111,14 +111,16 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        } else if (id == R.id.action_trend) {
+        if (id == R.id.action_trend) {
 
             Intent intent = new Intent(MainActivity.this, TrendActivity.class);
             startActivity(intent);
             return true;
-        }
+        }/* else if (id == R.id.action_settings) {
+            return true;
+        } else if (id == R.id.action_achive){
+            return true;
+        }*/
 
         return super.onOptionsItemSelected(item);
     }

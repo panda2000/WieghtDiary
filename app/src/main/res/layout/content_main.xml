@@ -247,7 +247,7 @@
         android:layout_weight="0.25"
         android:text="дата"
         android:visibility="visible"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/textView5" />
 

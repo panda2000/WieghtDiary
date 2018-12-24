@@ -8,7 +8,7 @@
         android:orderInCategory="100"
         android:title="@string/action_trend"
         app:showAsAction="never" />
-
+<!--
     <item
         android:id="@+id/action_history"
         android:orderInCategory="100"
@@ -16,10 +16,16 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/action_achive"
+        android:orderInCategory="100"
+        android:title="@string/action_achive"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
-
+-->
 
 </menu>

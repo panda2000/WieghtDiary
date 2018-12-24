@@ -163,7 +163,7 @@ public class TrendActivity extends AppCompatActivity {
             // graph.getGridLabelRenderer().setNumHorizontalLabels(Math.min(8, points.length)); // only 4 because of the space
             //graph.getGridLabelRenderer().setNumHorizontalLabels(dataPoints.length); // only 4 because of the space
             graph.getGridLabelRenderer().setHorizontalLabelsAngle(90);
-            //graph.getGridLabelRenderer().setTextSize(12);
+            graph.getGridLabelRenderer().setTextSize(12);
 
             // set manual x bounds to have nice steps
             //graph.getViewport().setMinX(min_d);

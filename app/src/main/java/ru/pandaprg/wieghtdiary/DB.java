@@ -125,7 +125,7 @@ public class DB {
 
 */
     // добавить запись в DB_TABLE
-    public void addRec(String time, int breast, int ubreast, int waist, int belly, int thigh, int leg, int weight) {
+    public void addRec(String time, double breast, double ubreast, double waist, double belly, double thigh, double leg, double weight) {
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_DATE, time);
         cv.put(COLUMN_BREAST, breast);
