@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class measurement extends AppCompatActivity {
 
@@ -29,7 +30,7 @@ public class measurement extends AppCompatActivity {
 
         Resources res = getResources();
         quest = res.getStringArray(R.array.questions);
-        final int []  values = new int [quest.length];
+        final double []  values = new double[quest.length];
         girth_unit = res.getString(R.string.girth_unit);
         weight_unit = res.getString(R.string.weight_unit);
         step = 0;
@@ -47,7 +48,10 @@ public class measurement extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                values[step] = Integer.parseInt(etValue.getText().toString());
+                if (etValue.getText().length() != 0){
+
+
+                values[step] = Double.parseDouble(etValue.getText().toString());
                 etValue.setText("");
                 //Если это последний вопрос
                 if (step == quest.length-2){
@@ -80,6 +84,11 @@ public class measurement extends AppCompatActivity {
                     intent.putExtra("Weight", values[6]);
                     setResult(RESULT_OK, intent);
                     finish();
+                }
+                } else {
+                    Toast toast = Toast.makeText(getApplicationContext(),
+                            "Введи результат измерения...", Toast.LENGTH_SHORT);
+                    toast.show();
                 }
             }
         });
