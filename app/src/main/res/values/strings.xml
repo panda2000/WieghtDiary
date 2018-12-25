@@ -31,5 +31,7 @@
 
     <string name="girth_unit">см</string>
     <string name="weight_unit">кг</string>
+    <string name="title_activity_history">HistoryActivity</string>
+    <string name="action_main">Главная</string>
 
 </resources>

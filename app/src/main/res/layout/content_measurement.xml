@@ -43,7 +43,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:inputType="number|numberDecimal"
         android:ems="2"
         android:id="@+id/etValue"
         android:text="49,9"

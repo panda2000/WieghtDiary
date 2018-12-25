@@ -111,12 +111,23 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_trend) {
+        if (id == R.id.action_main) {
 
-            Intent intent = new Intent(MainActivity.this, TrendActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             return true;
-        }/* else if (id == R.id.action_settings) {
+        }else if (id == R.id.action_trend) {
+
+            Intent intent = new Intent(this, TrendActivity.class);
+            startActivity(intent);
+            return true;
+        }else if (id == R.id.action_history) {
+
+            Intent intent = new Intent(this, HistoryActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        /* else if (id == R.id.action_settings) {
             return true;
         } else if (id == R.id.action_achive){
             return true;
