@@ -85,6 +85,11 @@ public class DB {
         return mDB.query(MEASURING_TABLE, null, null, null, null, null, null);
     }
 
+    public Cursor getAllDataLast() {
+        String orderBy = COLUMN_DATE + " DESC";
+        return mDB.query(MEASURING_TABLE, null, null, null, null, null, orderBy);
+    }
+
     public Cursor getTopData() {
         String where = "";//"LIMIT 1";
         String orderBy = "_id DESC LIMIT 1";

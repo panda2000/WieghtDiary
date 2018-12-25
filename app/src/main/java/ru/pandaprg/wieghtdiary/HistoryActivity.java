@@ -36,7 +36,7 @@ public class HistoryActivity extends AppCompatActivity {
 
         db = new DB(this);
         db.open();
-        Cursor cursor = db.getAllData();
+        Cursor cursor = db.getAllDataLast();
 
         startManagingCursor(cursor);
 

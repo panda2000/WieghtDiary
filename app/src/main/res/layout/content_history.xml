@@ -18,7 +18,6 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-
         <TextView
             android:id="@+id/tvBreast"
             android:layout_width="wrap_content"
@@ -76,6 +75,8 @@
             android:textSize="10sp"/>
 
     </LinearLayout>
+
+
 
     <ListView
         android:id="@+id/lvHistory"
