@@ -1,5 +1,6 @@
 package ru.pandaprg.wieghtdiary;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -9,12 +10,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
+import android.widget.ExpandableListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.SimpleCursorTreeAdapter;
 
 public class HistoryActivity extends AppCompatActivity {
 
     private DB db;
+    ExpandableListView elvMain;
     SimpleCursorAdapter scAdapter;
     Cursor cursor;
 
@@ -36,15 +39,36 @@ public class HistoryActivity extends AppCompatActivity {
 
         db = new DB(this);
         db.open();
-        Cursor cursor = db.getAllDataLast();
+        Cursor cursor = db.getAllMesurementDateLast();
 
         startManagingCursor(cursor);
 
         //// TODO: 25.12.18 добавить обработку даты
 
-        // формируем столбцы сопоставления
-        String [] from = new String[]{
-               // DB.COLUMN_DATE,       //
+        // формируем столбцы сопоставления для групп
+        String [] groupFrom = new String[]{
+                DB.COLUMN_DATE,
+                DB.COLUMN_BREAST,
+                //DB.COLUMN_UBREAST,
+                //DB.COLUMN_WAIST,
+                DB.COLUMN_BELLY,
+                DB.COLUMN_THIGH,
+                //DB.COLUMN_LEG,
+                DB.COLUMN_WEIGHT};
+
+        int [] groupTo = new int [] {
+                R.id.tvTime,
+                R.id.tvBreast,
+                //R.id.tvUBreast,
+                //R.id.tvWaist,
+                R.id.tvBelly,
+                R.id.tvThight,
+                //R.id.tvLeg,
+                R.id.tvWeight};
+
+        // формируем столбцы сопоставления для элементов
+        String [] childFrom = new String[]{
+                //DB.COLUMN_DATE,
                 DB.COLUMN_BREAST,
                 DB.COLUMN_UBREAST,
                 DB.COLUMN_WAIST,
@@ -53,8 +77,8 @@ public class HistoryActivity extends AppCompatActivity {
                 DB.COLUMN_LEG,
                 DB.COLUMN_WEIGHT};
 
-        int [] to = new int [] {
-              //  R.id.tvTime,
+        int [] childTo = new int [] {
+                //R.id.tvTime,
                 R.id.tvBreast,
                 R.id.tvUBreast,
                 R.id.tvWaist,
@@ -64,9 +88,20 @@ public class HistoryActivity extends AppCompatActivity {
                 R.id.tvWeight};
 
         // создаем адаптер и настраиваем список
+        /*
         scAdapter = new SimpleCursorAdapter(this,R.layout.item, cursor,from,to);
         ListView lvHistory = (ListView) findViewById(R.id.lvHistory);
-        lvHistory.setAdapter(scAdapter);
+        lvHistory.setAdapter(scAdapter);*/
+
+
+
+        // создаем адаптер и настраиваем список
+        SimpleCursorTreeAdapter sctAdapter = new MyAdapter(this, cursor,
+                R.layout.item_group, groupFrom,
+                groupTo, R.layout.item_child, childFrom,
+                childTo);
+        elvMain = (ExpandableListView) findViewById(R.id.elvMain);
+        elvMain.setAdapter(sctAdapter);
     }
 
     @Override
@@ -107,6 +142,22 @@ public class HistoryActivity extends AppCompatActivity {
         }*/
 
         return super.onOptionsItemSelected(item);
+    }
+
+    class MyAdapter extends SimpleCursorTreeAdapter {
+
+        public MyAdapter(Context context, Cursor cursor, int groupLayout,
+                         String[] groupFrom, int[] groupTo, int childLayout,
+                         String[] childFrom, int[] childTo) {
+            super(context, cursor, groupLayout, groupFrom, groupTo,
+                    childLayout, childFrom, childTo);
+        }
+
+        protected Cursor getChildrenCursor(Cursor groupCursor) {
+            // получаем курсор по элементам для конкретной группы
+            int idColumn = groupCursor.getColumnIndex(DB.COLUMN_ID);
+            return db.getMeasurementData(groupCursor.getInt(idColumn));
+        }
     }
 
 }

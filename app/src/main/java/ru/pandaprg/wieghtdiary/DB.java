@@ -90,6 +90,18 @@ public class DB {
         return mDB.query(MEASURING_TABLE, null, null, null, null, null, orderBy);
     }
 
+    public Cursor getAllMesurementDateLast() {
+        // // TODO: 26.12.18 оставить только поля дата и id
+        String orderBy = COLUMN_DATE + " DESC";
+        return mDB.query(MEASURING_TABLE, null, null, null, null, null, orderBy);
+    }
+
+    // данные по измерениям конкретной группы
+    public Cursor getMeasurementData(long companyID) {
+        return mDB.query(MEASURING_TABLE, null, COLUMN_ID + " = "
+                + companyID, null, null, null, null);
+    }
+
     public Cursor getTopData() {
         String where = "";//"LIMIT 1";
         String orderBy = "_id DESC LIMIT 1";
