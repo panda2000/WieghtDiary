@@ -5,10 +5,20 @@
     android:orientation="horizontal">
 
     <TextView
+        android:id="@+id/tvDummi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginLeft="20dp"
+        android:text="   "
+        android:textSize="15sp"/>
+
+    <TextView
             android:id="@+id/tvTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:layout_marginLeft="20dp"
             android:text=""
             android:textSize="15sp"/>
 
@@ -29,7 +39,7 @@
 
 
     <TextView
-            android:id="@+id/tvBelly"
+            android:id="@+id/tvWaist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"

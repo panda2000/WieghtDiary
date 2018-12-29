@@ -40,6 +40,8 @@ public class TrendActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(TrendActivity.this, measurement.class);
                 startActivityForResult(intent,1);
+                
+                //// TODO: 29.12.18 сделать добавление на страничке гафиков 
             }
         });
 

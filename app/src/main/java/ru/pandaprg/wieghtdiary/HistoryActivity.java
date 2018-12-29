@@ -12,7 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.SimpleCursorAdapter;
-import android.widget.SimpleCursorTreeAdapter;
+
+import static ru.pandaprg.wieghtdiary.R.id.tvTime;
 
 public class HistoryActivity extends AppCompatActivity {
 
@@ -34,14 +35,16 @@ public class HistoryActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HistoryActivity.this, measurement.class);
                 startActivityForResult(intent,1);
+                
+                //// TODO: 29.12.18 сделать добавление на страничке истории 
             }
         });
 
         db = new DB(this);
         db.open();
-        Cursor cursor = db.getAllMesurementDateLast();
+        Cursor cursor = db.getAllDataLast();
 
-        startManagingCursor(cursor);
+     //   startManagingCursor(cursor);
 
         //// TODO: 25.12.18 добавить обработку даты
 
@@ -50,21 +53,23 @@ public class HistoryActivity extends AppCompatActivity {
                 DB.COLUMN_DATE,
                 DB.COLUMN_BREAST,
                 //DB.COLUMN_UBREAST,
-                //DB.COLUMN_WAIST,
-                DB.COLUMN_BELLY,
+                DB.COLUMN_WAIST,
+                //DB.COLUMN_BELLY,
                 DB.COLUMN_THIGH,
                 //DB.COLUMN_LEG,
-                DB.COLUMN_WEIGHT};
+                //DB.COLUMN_WEIGHT
+        };
 
         int [] groupTo = new int [] {
-                R.id.tvTime,
+                tvTime,
                 R.id.tvBreast,
                 //R.id.tvUBreast,
-                //R.id.tvWaist,
-                R.id.tvBelly,
+                R.id.tvWaist,
+                //R.id.tvBelly,
                 R.id.tvThight,
                 //R.id.tvLeg,
-                R.id.tvWeight};
+                //R.id.tvWeight
+        };
 
         // формируем столбцы сопоставления для элементов
         String [] childFrom = new String[]{
@@ -96,12 +101,12 @@ public class HistoryActivity extends AppCompatActivity {
 
 
         // создаем адаптер и настраиваем список
-        SimpleCursorTreeAdapter sctAdapter = new MyAdapter(this, cursor,
+        myCursorTreeAdapter myAdapter = new MyAdapter(this, cursor,
                 R.layout.item_group, groupFrom,
                 groupTo, R.layout.item_child, childFrom,
                 childTo);
         elvMain = (ExpandableListView) findViewById(R.id.elvMain);
-        elvMain.setAdapter(sctAdapter);
+        elvMain.setAdapter(myAdapter);
     }
 
     @Override
@@ -144,7 +149,7 @@ public class HistoryActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    class MyAdapter extends SimpleCursorTreeAdapter {
+    class MyAdapter extends myCursorTreeAdapter {
 
         public MyAdapter(Context context, Cursor cursor, int groupLayout,
                          String[] groupFrom, int[] groupTo, int childLayout,
@@ -158,6 +163,7 @@ public class HistoryActivity extends AppCompatActivity {
             int idColumn = groupCursor.getColumnIndex(DB.COLUMN_ID);
             return db.getMeasurementData(groupCursor.getInt(idColumn));
         }
+
     }
 
 }

@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">Дневник фигуры</string>
 
+    <string name="title_activity_history">История</string>
+    <string name="action_main">Главная</string>
     <string name="title_activity_measurement">Замеры</string>
     <string name="title_activity_trend">График</string>
+
 
     <string name="action_trend">График</string>
     <string name="action_history">История</string>
@@ -31,7 +34,6 @@
 
     <string name="girth_unit">см</string>
     <string name="weight_unit">кг</string>
-    <string name="title_activity_history">HistoryActivity</string>
-    <string name="action_main">Главная</string>
+
 
 </resources>

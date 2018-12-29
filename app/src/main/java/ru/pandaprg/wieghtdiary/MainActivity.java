@@ -6,25 +6,34 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private DB db;
-    TextView tvBreast;
-    TextView tvUBreast;
-    TextView tvWaist;
-    TextView tvBelly;
-    TextView tvThigh;
-    TextView tvLeg;
-    TextView tvWeight;
-    TextView tvTime;
-    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+    private TextView tvBreast;
+    private TextView tvUBreast;
+    private TextView tvWaist;
+    private TextView tvBelly;
+    private TextView tvThigh;
+    private TextView tvLeg;
+    private TextView tvWeight;
+    private TextView tvTime;
+    private int id=0;
+
+    private ImageButton ibtnBack;
+    private ImageButton ibtnNext;
+
+    private SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+
+    //LoaderCallbacks <Cursor> lc = (LoaderCallbacks<Cursor>) this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +63,21 @@ public class MainActivity extends AppCompatActivity {
         tvLeg = (TextView) findViewById(R.id.tvLeg);
         tvWeight = (TextView) findViewById(R.id.tvWeight);
 
+        ibtnBack = (ImageButton) findViewById(R.id.btnBack);
+        ibtnBack.setOnClickListener(this);
+        ibtnNext = (ImageButton) findViewById(R.id.btnNext);
+        ibtnNext.setOnClickListener(this);
+
         // запрашиваем последние значения
         Cursor cursor = db.getTopData();
+        viewCursor(cursor);
+    }
+
+    protected  void viewCursor (Cursor cursor) {
         // выводим значения из курсора
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
+            id = cursor.getInt(0);
             tvTime.setText(sdf.format(Long.parseLong(cursor.getString(1))));
             tvBreast.setText(cursor.getString(2));
             tvUBreast.setText(cursor.getString(3));
@@ -75,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         if (data == null) {return;}
 
         String time = System.currentTimeMillis() + "";
+        id = data.getIntExtra("_id", 0);
         double breast = data.getDoubleExtra("Breast", 0);
         double uBreast = data.getDoubleExtra("UBreast",0);
         double waist = data.getDoubleExtra("Waist", 0);
@@ -82,8 +102,6 @@ public class MainActivity extends AppCompatActivity {
         double thigh = data.getDoubleExtra("Thight", 0);
         double leg = data.getDoubleExtra("Leg", 0);
         double weight = data.getDoubleExtra("Weight", 0);
-
-        db.addRec(time, breast, uBreast, waist, belly,thigh, leg, weight);
 
         tvTime.setText(sdf.format(Long.parseLong(time)));
         tvBreast.setText(breast+"");
@@ -134,5 +152,32 @@ public class MainActivity extends AppCompatActivity {
         }*/
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        int tempID = id;
+        switch (v.getId()){
+            case R.id.btnBack :
+               // tvTime.setText("Нажата кнопка Back");
+                if (id > 0) {id--;}
+                break;
+            case R.id.btnNext :
+                //tvTime.setText("Нажата кнопка Next");
+                id ++;
+                break;
+        }
+        // получаем новый курсор с данными
+        Log.d("LOG","ID = "+id);
+        Cursor cursor = db.getDataByID(id);
+        cursor.moveToFirst();
+        if (cursor.getCount() > 0) {
+            id = cursor.getInt(0);
+
+        } else {
+            id = tempID;
+        }
+        viewCursor(cursor);
+        //getSupportLoaderManager().restartLoader(0,null,lc);
     }
 }

@@ -72,6 +72,7 @@ public class measurement extends AppCompatActivity {
                     step = 0;
 
                     // добавляем в базу
+                    // // TODO: 29.12.18 сделать добавление в базу 
 
                     // возвращаемся в главное окно
                     Intent intent = new Intent();

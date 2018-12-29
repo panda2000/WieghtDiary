@@ -92,14 +92,15 @@ public class DB {
 
     public Cursor getAllMesurementDateLast() {
         // // TODO: 26.12.18 оставить только поля дата и id
+        String columns[] = { COLUMN_DATE , COLUMN_ID};
         String orderBy = COLUMN_DATE + " DESC";
-        return mDB.query(MEASURING_TABLE, null, null, null, null, null, orderBy);
+        return mDB.query(MEASURING_TABLE, columns, null, null, null, null, orderBy);
     }
 
     // данные по измерениям конкретной группы
-    public Cursor getMeasurementData(long companyID) {
+    public Cursor getMeasurementData(long groupID) {
         return mDB.query(MEASURING_TABLE, null, COLUMN_ID + " = "
-                + companyID, null, null, null, null);
+                + groupID, null, null, null, null);
     }
 
     public Cursor getTopData() {
@@ -107,6 +108,15 @@ public class DB {
         String orderBy = "_id DESC LIMIT 1";
 
         Cursor cursor = mDB.query(MEASURING_TABLE, null, where, null, null, null, orderBy);
+
+        debugCursor(cursor);
+        return cursor;
+    }
+
+    public Cursor getDataByID(int id) {
+        String where = COLUMN_ID + " = " + id;
+
+        Cursor cursor = mDB.query(MEASURING_TABLE, null, where, null, null, null, null);
 
         debugCursor(cursor);
         return cursor;
