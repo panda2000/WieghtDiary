@@ -15,7 +15,8 @@ import java.text.SimpleDateFormat;
 
 public abstract class myCursorTreeAdapter extends ResourceCursorTreeAdapter {
 
-    private SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+    private SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy"); // HH:mm
+
 
     /** The name of the columns that contain the data to display for a group. */
     private String[] mGroupFromNames;
