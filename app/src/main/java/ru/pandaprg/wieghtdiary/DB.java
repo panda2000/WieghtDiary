@@ -65,6 +65,7 @@ public class DB {
         mCtx = ctx;
     }
 
+
     // открыть подключение
     public void open() {
         Log.d(LOG_TAG,"mCtx = " + mCtx);

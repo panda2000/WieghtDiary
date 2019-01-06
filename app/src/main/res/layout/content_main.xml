@@ -13,128 +13,6 @@
     tools:context="ru.pandaprg.wieghtdiary.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <include layout="@layout/data_select" />
-
-    <TextView
-        android:text="0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvLeg"
-        android:layout_weight="0.25"
-        android:layout_alignBaseline="@+id/textView17"
-        android:layout_alignBottom="@+id/textView17"
-        android:layout_alignStart="@+id/tvThight"
-        android:textSize="18sp" />
-
-    <TextView
-        android:text="0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvBelly"
-        android:layout_weight="0.25"
-        android:layout_alignBaseline="@+id/textView12"
-        android:layout_alignBottom="@+id/textView12"
-        android:layout_alignStart="@+id/tvWaist"
-        android:textSize="18sp" />
-
-    <TextView
-        android:text="0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvWaist"
-        android:layout_weight="0.25"
-        android:layout_alignBaseline="@+id/textView10"
-        android:layout_alignBottom="@+id/textView10"
-        android:layout_alignStart="@+id/tvUBreast"
-        android:textSize="18sp" />
-
-    <TextView
-        android:text="0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvUBreast"
-        android:layout_weight="0.25"
-        android:layout_alignBaseline="@+id/textView6"
-        android:layout_alignBottom="@+id/textView6"
-        android:layout_alignStart="@+id/tvBreast"
-        android:textSize="18sp" />
-
-    <TextView
-        android:text="0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvBreast"
-        android:layout_weight="0.25"
-        android:layout_alignBaseline="@+id/textView5"
-        android:layout_alignBottom="@+id/textView5"
-        android:layout_alignStart="@+id/textView2"
-        android:textSize="18sp" />
-
-    <TextView
-        android:text="0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvThight"
-        android:layout_weight="0.25"
-        android:layout_alignBaseline="@+id/textView8"
-        android:layout_alignBottom="@+id/textView8"
-        android:layout_alignStart="@+id/tvBelly"
-        android:textSize="18sp" />
-
-    <TextView
-        android:text="@string/belly_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView12"
-        android:layout_weight="0.25"
-        android:layout_marginTop="36dp"
-        android:layout_below="@+id/textView10"
-        android:layout_alignStart="@+id/textView6"
-        android:textSize="18sp" />
-
-    <TextView
-        android:text="@string/waist_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView10"
-        android:layout_weight="0.25"
-        android:layout_marginTop="38dp"
-        android:layout_below="@+id/textView6"
-        android:layout_alignEnd="@+id/textView5"
-        android:textSize="18sp" />
-
-    <TextView
-        android:text="@string/thigh_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView8"
-        android:layout_weight="0.25"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/textView12"
-        android:layout_alignStart="@+id/textView12"
-        android:textSize="18sp" />
-
-    <TextView
-        android:text="@string/leg_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView17"
-        android:layout_weight="0.25"
-        android:layout_marginTop="44dp"
-        android:layout_below="@+id/textView8"
-        android:layout_alignStart="@+id/textView10"
-        android:textSize="18sp" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/mess"
-        android:id="@+id/imageView3"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/tvUnit"
-        android:scaleType="fitStart"
-        android:layout_alignTop="@+id/textView5" />
-
     <TextView
         android:text="@string/weight_unit"
         android:layout_width="wrap_content"
@@ -155,95 +33,235 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
 
-    <TextView
+
+    <include layout="@layout/data_select"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="27dp" />
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0.25"
-        android:layout_alignBaseline="@+id/tvLeg"
-        android:layout_alignBottom="@+id/tvLeg"
-        android:layout_toEndOf="@+id/tvLeg"
-        android:text="@string/girth_unit"
-        android:id="@+id/textView18"
-        android:textSize="18sp" />
+        app:srcCompat="@drawable/mess"
+        android:id="@+id/imageView3"
+        android:scaleType="fitStart"
+        android:layout_marginTop="48dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="48dp"/>
 
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0.25"
-        android:text="@string/girth_unit"
-        android:layout_alignBaseline="@+id/tvThight"
-        android:layout_alignBottom="@+id/tvThight"
-        android:layout_toEndOf="@+id/tvThight"
-        android:textSize="18sp" />
+        android:orientation="vertical"
+        android:layout_marginTop="96dp"
+        android:layout_marginLeft="144dp"
+        >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.25"
-        android:text="@string/girth_unit"
-        android:id="@+id/textView21"
-        android:layout_alignBaseline="@+id/tvWaist"
-        android:layout_alignBottom="@+id/tvWaist"
-        android:layout_toEndOf="@+id/tvWaist"
-        android:textSize="18sp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.25"
-        android:text="@string/girth_unit"
-        android:id="@+id/textView22"
-        android:layout_alignBaseline="@+id/tvUBreast"
-        android:layout_alignBottom="@+id/tvUBreast"
-        android:layout_toEndOf="@+id/tvUBreast"
-        android:textSize="18sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.25"
-        android:text="@string/girth_unit"
-        android:id="@+id/textView23"
-        android:layout_alignBaseline="@+id/tvBreast"
-        android:layout_alignBottom="@+id/tvBreast"
-        android:layout_toEndOf="@+id/tvBreast"
-        android:textSize="18sp" />
+            <TextView
+                android:text="@string/breast_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textBreast"
+                android:textSize="18sp"
+                android:layout_weight="0.25"
+                />
 
-    <TextView
-        android:text="@string/under_breast_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView6"
-        android:layout_weight="0.25"
-        android:layout_marginTop="37dp"
-        android:layout_below="@+id/textView5"
-        android:layout_alignStart="@+id/textView10"
-        android:textSize="18sp"
-        android:singleLine="false"
-        android:layout_alignEnd="@+id/imageView3" />
+            <TextView
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvBreast"
+                android:textSize="18sp"
+                android:layout_weight="0.25"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.25"
-        android:text="@string/girth_unit"
-        android:id="@+id/textView20"
-        android:layout_alignBaseline="@+id/tvBelly"
-        android:layout_alignBottom="@+id/tvBelly"
-        android:layout_toEndOf="@+id/tvBelly"
-        android:textSize="18sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/girth_unit"
+                android:id="@+id/textUnitBreast"
+                android:textSize="18sp"
+                android:layout_weight="0.25"/>
 
-    <TextView
-        android:text="@string/breast_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView5"
-        android:layout_weight="0.25"
-        android:textSize="18sp"
-        android:layout_marginEnd="16dp"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_alignEnd="@+id/imageView3" />
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:text="@string/under_breast_label"
+                android:layout_width="64dp"
+                android:layout_height="44dp"
+                android:id="@+id/textUBreast"
+                android:textSize="18sp"
+                android:singleLine="false" />
+
+            <TextView
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvUBreast"
+                android:layout_weight="0.25"
+                android:textSize="18sp"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:text="@string/girth_unit"
+                android:id="@+id/textUnitUBreast"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:text="@string/waist_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView10"
+                android:layout_weight="0.25"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvWaist"
+                android:layout_weight="0.25"
+                android:textSize="18sp"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:text="@string/girth_unit"
+                android:id="@+id/textView18"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            >
+
+            <TextView
+                android:text="@string/belly_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView12"
+                android:layout_weight="0.25"
+                android:textSize="18sp" />
+
+            <TextView
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvBelly"
+                android:layout_weight="0.25"
+                android:textSize="18sp"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:text="@string/girth_unit"
+                android:id="@+id/textView22"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="0.25"
+            android:layout_marginBottom="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:text="@string/thigh_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView8"
+                android:layout_weight="0.25"
+                android:textSize="18sp" />
+
+            <TextView
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvThight"
+                android:textSize="18sp"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:text="@string/girth_unit"
+                android:id="@+id/textView20"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            >
+
+            <TextView
+                android:text="@string/leg_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView17"
+                android:layout_weight="0.25"
+                android:textSize="18sp" />
+
+            <TextView
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvLeg"
+                android:textSize="18sp"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:text="@string/girth_unit"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <TextView
         android:text="17"
@@ -251,10 +269,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
         android:layout_weight="0.25"
-        android:layout_marginTop="73dp"
+        android:layout_marginTop="74dp"
         android:visibility="invisible"
-        android:layout_marginStart="19dp"
+        android:layout_marginStart="21dp"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/imageView3" />
+        android:layout_toEndOf="@+id/tvUnit" />
+
 
 </RelativeLayout>

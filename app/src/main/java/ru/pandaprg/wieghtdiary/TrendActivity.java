@@ -23,9 +23,12 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import static android.R.attr.data;
+
 public class TrendActivity extends AppCompatActivity {
 
-    private DB db;
+    //private DB db;
+    Data dataMeasurement;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,20 +37,76 @@ public class TrendActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Intent intent = getIntent();
+        dataMeasurement = new Data(this);
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(TrendActivity.this, measurement.class);
+                intent.putExtra("Data", String.valueOf(data));
                 startActivityForResult(intent,1);
-                
-                //// TODO: 29.12.18 сделать добавление на страничке гафиков 
+
+                //// TODO: 29.12.18 сделать добавление на страничке гафиков
             }
         });
 
-        db = new DB(this);
-        db.open();
-        Cursor cursor = db.getAllData();
+        //db = new DB(this);
+        //db.open();
+        //Cursor cursor = data.getAllData();
+
+        view_data(dataMeasurement.getAllData());
+
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        view_data(dataMeasurement.getAllData());
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_main) {
+
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            return true;
+        }else if (id == R.id.action_trend) {
+
+            Intent intent = new Intent(this, TrendActivity.class);
+            startActivity(intent);
+            return true;
+        }else if (id == R.id.action_history) {
+
+            Intent intent = new Intent(this, HistoryActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        /* else if (id == R.id.action_settings) {
+            return true;
+        } else if (id == R.id.action_achive){
+            return true;
+        }*/
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void view_data (Cursor cursor) {
 
         ArrayList <DataPoint> dataBreast = new ArrayList<DataPoint>();
         ArrayList <DataPoint> dataUBreast = new ArrayList<DataPoint>();
@@ -174,49 +233,6 @@ public class TrendActivity extends AppCompatActivity {
             graph.getViewport().setXAxisBoundsManual(true);
 
         }
-
-
-
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_main) {
-
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            return true;
-        }else if (id == R.id.action_trend) {
-
-            Intent intent = new Intent(this, TrendActivity.class);
-            startActivity(intent);
-            return true;
-        }else if (id == R.id.action_history) {
-
-            Intent intent = new Intent(this, HistoryActivity.class);
-            startActivity(intent);
-            return true;
-        }
-        /* else if (id == R.id.action_settings) {
-            return true;
-        } else if (id == R.id.action_achive){
-            return true;
-        }*/
-
-        return super.onOptionsItemSelected(item);
     }
 
 }

@@ -21,12 +21,16 @@ public class measurement extends AppCompatActivity {
     private String girth_unit;
     private String weight_unit;
 
+    private Data data;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_measurement);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        data = new Data(this);
 
         Resources res = getResources();
         quest = res.getStringArray(R.array.questions);
@@ -72,9 +76,10 @@ public class measurement extends AppCompatActivity {
                     step = 0;
 
                     // добавляем в базу
-                    // // TODO: 29.12.18 сделать добавление в базу 
+                    // // TODO: 29.12.18 сделать добавление в базу
+                    data.addRec(values);
 
-                    // возвращаемся в главное окно
+                    // возвращаемся в предыдущее окно
                     Intent intent = new Intent();
                     intent.putExtra("Breast", values[0]);
                     intent.putExtra("UBreast",values[1]);

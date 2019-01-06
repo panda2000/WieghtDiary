@@ -17,7 +17,8 @@ import java.text.SimpleDateFormat;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private DB db;
+    //private DB db;
+    private Data dataWieghtDiary;
     private TextView tvBreast;
     private TextView tvUBreast;
     private TextView tvWaist;
@@ -42,17 +43,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        dataWieghtDiary = new Data(this);
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, measurement.class);
+                //intent.putExtra("Data", (Serializable) dataWieghtDiary);
                 startActivityForResult(intent,1);
             }
         });
 
-        db = new DB(this);
-        db.open();
+        //db = new DB(this);
+        //db.open();
+
+
 
         tvTime = (TextView) findViewById(R.id.tvTime);
         tvBreast = (TextView) findViewById(R.id.tvBreast);
@@ -69,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ibtnNext.setOnClickListener(this);
 
         // запрашиваем последние значения
-        Cursor cursor = db.getTopData();
+        Cursor cursor = dataWieghtDiary.getTopData();
         viewCursor(cursor);
     }
 
@@ -137,6 +143,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else if (id == R.id.action_trend) {
 
             Intent intent = new Intent(this, TrendActivity.class);
+            intent.putExtra("Data", String.valueOf(dataWieghtDiary));
             startActivity(intent);
             return true;
         }else if (id == R.id.action_history) {
@@ -169,7 +176,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         // получаем новый курсор с данными
         Log.d("LOG","ID = "+id);
-        Cursor cursor = db.getDataByID(id);
+        Cursor cursor = dataWieghtDiary.getDataByID(id);
         cursor.moveToFirst();
         if (cursor.getCount() > 0) {
             id = cursor.getInt(0);
