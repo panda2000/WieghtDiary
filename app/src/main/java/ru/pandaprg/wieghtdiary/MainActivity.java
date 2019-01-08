@@ -18,6 +18,8 @@ import java.text.SimpleDateFormat;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     //private DB db;
+    private String logTag = "LOG";
+
     private Data dataWieghtDiary;
     private TextView tvBreast;
     private TextView tvUBreast;
@@ -40,6 +42,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        logTag += getLocalClassName();
+        Log.d(logTag, "Create");
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -137,6 +143,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_main) {
 
+            //FragmentManager.BackStackEntry
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             return true;
@@ -175,7 +182,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
         // получаем новый курсор с данными
-        Log.d("LOG","ID = "+id);
+        Log.d(logTag,"ID = "+id);
         Cursor cursor = dataWieghtDiary.getDataByID(id);
         cursor.moveToFirst();
         if (cursor.getCount() > 0) {
@@ -186,5 +193,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         viewCursor(cursor);
         //getSupportLoaderManager().restartLoader(0,null,lc);
+    }
+
+    @Override
+    public void  onPause (){
+        super.onPause();
+        Log.d(logTag,"Pause");
+    }
+
+    @Override
+    public void  onStop (){
+        super.onStop();
+        Log.d(logTag,"Stop");
+    }
+
+    @Override
+    public void  onStart (){
+        super.onStart();
+        Log.d(logTag,"Start");
+    }
+
+    @Override
+    public void  onResume (){
+        super.onResume();
+        Log.d(logTag,"Resume");
+    }
+
+    @Override
+    public void  onDestroy (){
+        super.onDestroy();
+        Log.d(logTag,"Destroy");
     }
 }

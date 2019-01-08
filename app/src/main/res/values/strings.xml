@@ -6,6 +6,10 @@
     <string name="title_activity_measurement">Замеры</string>
     <string name="title_activity_trend">График</string>
 
+    <string name="add_button">Добвить замер</string>
+    <string name="next_measurement_button">Следующие измерения</string>
+    <string name="last_measurement_button">Предыдущие измерения</string>
+
 
     <string name="action_trend">График</string>
     <string name="action_history">История</string>
