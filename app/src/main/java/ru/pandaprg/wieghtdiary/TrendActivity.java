@@ -82,14 +82,13 @@ public class TrendActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_main) {
+            finish();
+            return  true;
 
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            return true;
         }else if (id == R.id.action_trend) {
-
+            /*
             Intent intent = new Intent(this, TrendActivity.class);
-            startActivity(intent);
+            startActivity(intent);*/
             return true;
         }else if (id == R.id.action_history) {
 

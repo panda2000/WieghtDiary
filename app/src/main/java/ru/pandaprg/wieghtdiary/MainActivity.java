@@ -105,6 +105,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (data == null) {return;}
 
+        //Log.d (logTag, "Intent " + data.getComponent().toString());
+
         String time = System.currentTimeMillis() + "";
         id = data.getIntExtra("_id", 0);
         double breast = data.getDoubleExtra("Breast", 0);
@@ -142,10 +144,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_main) {
-
-            //FragmentManager.BackStackEntry
+            /*
             Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+            startActivity(intent);*/
             return true;
         }else if (id == R.id.action_trend) {
 

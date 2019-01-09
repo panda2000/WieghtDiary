@@ -35,8 +35,8 @@ public class HistoryActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HistoryActivity.this, measurement.class);
                 startActivityForResult(intent,1);
-                
-                //// TODO: 29.12.18 сделать добавление на страничке истории 
+
+                //// TODO: 29.12.18 сделать добавление на страничке истории
             }
         });
 
@@ -125,9 +125,10 @@ public class HistoryActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_main) {
-
+        /*
             Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+            startActivity(intent);*/
+            finish();
             return true;
         }else if (id == R.id.action_trend) {
 
@@ -135,9 +136,9 @@ public class HistoryActivity extends AppCompatActivity {
             startActivity(intent);
             return true;
         }else if (id == R.id.action_history) {
-
+            /*
             Intent intent = new Intent(this, HistoryActivity.class);
-            startActivity(intent);
+            startActivity(intent);*/
             return true;
         }
         /* else if (id == R.id.action_settings) {
