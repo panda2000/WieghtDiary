@@ -34,12 +34,6 @@
         android:layout_alignParentStart="true" />
 
 
-    <include layout="@layout/data_select"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentEnd="true"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp" />
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -274,6 +268,13 @@
         android:layout_marginStart="21dp"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/tvUnit" />
+
+    <include layout="@layout/data_select"
+        android:layout_marginLeft="8dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
