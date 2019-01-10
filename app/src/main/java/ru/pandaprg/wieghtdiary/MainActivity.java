@@ -150,13 +150,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return true;
         }else if (id == R.id.action_trend) {
 
-            Intent intent = new Intent(this, TrendActivity.class);
-            intent.putExtra("Data", String.valueOf(dataWieghtDiary));
+            Intent intent = new Intent(this, HistoryActivity.class);
+            intent.putExtra("Type", HistoryActivity.typeTREND);
             startActivity(intent);
             return true;
         }else if (id == R.id.action_history) {
 
             Intent intent = new Intent(this, HistoryActivity.class);
+            intent.putExtra("Type", HistoryActivity.typeHISTORY);
             startActivity(intent);
             return true;
         }
@@ -196,33 +197,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //getSupportLoaderManager().restartLoader(0,null,lc);
     }
 
-    @Override
-    public void  onPause (){
-        super.onPause();
-        Log.d(logTag,"Pause");
-    }
-
-    @Override
-    public void  onStop (){
-        super.onStop();
-        Log.d(logTag,"Stop");
-    }
-
-    @Override
-    public void  onStart (){
-        super.onStart();
-        Log.d(logTag,"Start");
-    }
-
-    @Override
-    public void  onResume (){
-        super.onResume();
-        Log.d(logTag,"Resume");
-    }
-
-    @Override
-    public void  onDestroy (){
-        super.onDestroy();
-        Log.d(logTag,"Destroy");
-    }
 }
