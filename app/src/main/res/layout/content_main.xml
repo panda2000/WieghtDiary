@@ -37,10 +37,10 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/mess"
+        app:srcCompat="@drawable/main"
         android:id="@+id/imageView3"
         android:scaleType="fitStart"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="72dp"
         android:layout_marginLeft="8dp"
         android:layout_marginBottom="48dp"/>
 

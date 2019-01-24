@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +31,8 @@ public class measurement extends AppCompatActivity {
         setContentView(R.layout.activity_measurement);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        final ImageView imageView = (ImageView) findViewById(R.id.ivMeassurement);
 
         data = new Data(this);
 
@@ -53,6 +57,28 @@ public class measurement extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (etValue.getText().length() != 0){
+                    Log.d("LOG Mess","step  = " + step);
+                    switch (step) {
+                        case 0:
+                            imageView.setImageResource(R.drawable.messurement2);
+                            break;
+                        case 1 :
+                            imageView.setImageResource(R.drawable.messurement3);
+                           break;
+                        case 2:
+                            imageView.setImageResource(R.drawable.messurement4);
+                            break;
+                        case 3 :
+                            imageView.setImageResource(R.drawable.messurement5);
+                            break;
+                        case 4:
+                            imageView.setImageResource(R.drawable.messurement6);
+                            break;
+                        case 5 :
+                            imageView.setImageResource(R.drawable.messurement7);
+                            break;
+                    }
+
 
 
                 values[step] = Double.parseDouble(etValue.getText().toString());
