@@ -1,4 +1,4 @@
-package ru.pandaprg.wieghtdiary;
+package ru.pandaprg.wieghtdiary.Measurement;
 
 import android.content.Intent;
 import android.content.res.Resources;
@@ -13,7 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class measurement extends AppCompatActivity {
+import ru.pandaprg.wieghtdiary.Base.Data.Data;
+import ru.pandaprg.wieghtdiary.R;
+
+public class MeasurementActivity extends AppCompatActivity {
 
     private int step = 0;
     private TextView tvQuestion;

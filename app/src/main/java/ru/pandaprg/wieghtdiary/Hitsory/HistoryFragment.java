@@ -1,4 +1,4 @@
-package ru.pandaprg.wieghtdiary;
+package ru.pandaprg.wieghtdiary.Hitsory;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.SimpleCursorAdapter;
+
+import ru.pandaprg.wieghtdiary.Base.Data.DB;
+import ru.pandaprg.wieghtdiary.R;
 
 import static ru.pandaprg.wieghtdiary.R.id.tvTime;
 

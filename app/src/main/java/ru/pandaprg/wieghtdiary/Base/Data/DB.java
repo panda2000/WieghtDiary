@@ -1,4 +1,4 @@
-package ru.pandaprg.wieghtdiary;
+package ru.pandaprg.wieghtdiary.Base.Data;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -210,79 +210,11 @@ public class DB {
             super(context, name, factory, version);
         }
 
-        // создаем и заполняем БД
+        // создаем БД
         @Override
         public void onCreate(SQLiteDatabase db) {
             Log.d (LOG_TAG, "onCreate");
             db.execSQL(DB_CREATE);
-            ContentValues cv = new ContentValues();
-
-                cv.put(COLUMN_DATE, "1541980800000");
-                cv.put(COLUMN_BREAST, 86);
-                cv.put(COLUMN_UBREAST, 75);
-                cv.put(COLUMN_WAIST, 72);
-                cv.put(COLUMN_BELLY, 89);
-                cv.put(COLUMN_THIGH, 93);
-                cv.put(COLUMN_LEG, 51);
-                cv.put(COLUMN_WEIGHT, 54.2);
-                db.insert(MEASURING_TABLE, null, cv);
-            cv.clear();
-
-            cv.put(COLUMN_DATE, "1542499200000");
-            cv.put(COLUMN_BREAST, 86);
-            cv.put(COLUMN_UBREAST, 74);
-            cv.put(COLUMN_WAIST, 71);
-            cv.put(COLUMN_BELLY, 87);
-            cv.put(COLUMN_THIGH, 92);
-            cv.put(COLUMN_LEG, 51);
-            cv.put(COLUMN_WEIGHT, 52.4);
-            db.insert(MEASURING_TABLE, null, cv);
-            cv.clear();
-
-            cv.put(COLUMN_DATE, "1543104000000");
-            cv.put(COLUMN_BREAST, 85);
-            cv.put(COLUMN_UBREAST, 73);
-            cv.put(COLUMN_WAIST, 68);
-            cv.put(COLUMN_BELLY, 83);
-            cv.put(COLUMN_THIGH, 91);
-            cv.put(COLUMN_LEG, 51);
-            cv.put(COLUMN_WEIGHT, 51.1);
-            db.insert(MEASURING_TABLE, null, cv);
-            cv.clear();
-
-            cv.put(COLUMN_DATE, "1543708800000");
-            cv.put(COLUMN_BREAST, 83);
-            cv.put(COLUMN_UBREAST, 72);
-            cv.put(COLUMN_WAIST, 65);
-            cv.put(COLUMN_BELLY, 81);
-            cv.put(COLUMN_THIGH, 90);
-            cv.put(COLUMN_LEG, 49);
-            cv.put(COLUMN_WEIGHT, 50.7);
-            db.insert(MEASURING_TABLE, null, cv);
-            cv.clear();
-
-            cv.put(COLUMN_DATE, "1544313600000");
-            cv.put(COLUMN_BREAST, 81);
-            cv.put(COLUMN_UBREAST, 70);
-            cv.put(COLUMN_WAIST, 62);
-            cv.put(COLUMN_BELLY, 73);
-            cv.put(COLUMN_THIGH, 86);
-            cv.put(COLUMN_LEG, 48);
-            cv.put(COLUMN_WEIGHT, 49.9);
-            db.insert(MEASURING_TABLE, null, cv);
-            cv.clear();
-
-            cv.put(COLUMN_DATE, "1545177600000");
-            cv.put(COLUMN_BREAST, 81);
-            cv.put(COLUMN_UBREAST, 71);
-            cv.put(COLUMN_WAIST, 65);
-            cv.put(COLUMN_BELLY, 81);
-            cv.put(COLUMN_THIGH, 88);
-            cv.put(COLUMN_LEG, 48);
-            cv.put(COLUMN_WEIGHT, 51.0);
-            db.insert(MEASURING_TABLE, null, cv);
-            cv.clear();
-
         }
 
         @Override

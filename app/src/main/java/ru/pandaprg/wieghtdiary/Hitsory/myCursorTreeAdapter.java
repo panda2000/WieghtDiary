@@ -1,4 +1,4 @@
-package ru.pandaprg.wieghtdiary;
+package ru.pandaprg.wieghtdiary.Hitsory;
 
 import android.content.Context;
 import android.database.Cursor;

@@ -1,4 +1,4 @@
-package ru.pandaprg.wieghtdiary;
+package ru.pandaprg.wieghtdiary.Hitsory;
 
 import android.app.Fragment;
 import android.content.res.Resources;
@@ -19,6 +19,9 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import ru.pandaprg.wieghtdiary.Base.Data.Data;
+import ru.pandaprg.wieghtdiary.R;
 
 
 public class TrendFragment extends Fragment {

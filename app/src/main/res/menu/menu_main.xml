@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="ru.pandaprg.wieghtdiary.MainActivity">
+    tools:context="ru.pandaprg.wieghtdiary.Main.MainActivity">
 
     <item
         android:id="@+id/action_main"
@@ -19,6 +19,12 @@
         android:id="@+id/action_history"
         android:orderInCategory="100"
         android:title="@string/action_history"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_share"
+        android:orderInCategory="100"
+        android:title="@string/action_share"
         app:showAsAction="never" />
     <!--
         <item

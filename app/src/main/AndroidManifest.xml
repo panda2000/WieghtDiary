@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".Main.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -19,11 +19,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".measurement"
+            android:name=".Measurement.MeasurementActivity"
             android:label="@string/title_activity_measurement"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".HistoryActivity"
+            android:name=".Hitsory.HistoryActivity"
             android:label="@string/title_activity_history"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
